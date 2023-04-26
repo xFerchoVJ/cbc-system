@@ -10,10 +10,10 @@
         <%= image_tag 'slidefirst.jpeg', class: "d-block w-100 img-fluid", size: 400%>
       </div>
       <div class="carousel-item">
-        <%= image_tag 'slidesecond.jpeg', class: "d-block w-100 img-fluid", size: 350%>
+        <%= image_tag 'slidesecond.jpeg', class: "d-block w-100 img-fluid", size: 400%>
       </div>
       <div class="carousel-item">
-        <%= image_tag 'slidethird.jpg', class: "d-block w-100", size: "400"%>
+        <%= image_tag 'slidethird.jpg', class: "d-block w-100 img-fluid", size: 400%>
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carousel_hero" data-bs-slide="prev">
@@ -27,4 +27,27 @@
   </div>
 
   <h1 class="text-center my-4"><span class="text-primary">Central Brookers</span> Colima</h1>
+
+  <div class="container">
+    <div class="d-flex flex-column align-items-center justify-content-center w-100 shadow">
+      <div class="w-100">
+        <div class="card">
+          <%= image_tag 'slidethird.jpg', class: "img-fluid"%>
+          <div class="card-body">
+            <p class="card-text">Un texto de ejemplo rápido para colocal cerca del título de la tarjeta y componer la mayor parte del contenido de la tarjeta.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-column align-items-center justify-content-center w-100 my-3 shadow">
+      <div class="w-100">
+        <div class="card">
+          <%= image_tag 'slidethird.jpg', class: "img-fluid"%>
+          <div class="card-body">
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis non ipsa sunt doloremque reiciendis vel voluptatum expedita odit et ex inventore possimus ut, quod odio vitae magni numquam tenetur! Quisquam!.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </main>
