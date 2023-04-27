@@ -1,0 +1,37 @@
+.navbar{
+  background-color: #212529;
+  color: #fff;
+
+  &__content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    margin: 0 auto;
+    width: 85%;
+
+    &-links{
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      text-align: center;
+      margin-left: 200px;
+    }
+
+    &-form{
+      width: 15%;
+    }
+  }
+}
+
+.link{
+  transition: all .5 ease-in-out;
+}
+
+.link:hover{
+  color: rgb(188, 188, 226);
+}
+
+.active{
+  border-bottom: 1px solid white;
+}

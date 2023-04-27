@@ -12,7 +12,11 @@
   </head>
 
   <body>
-    <%= render 'layouts/navbar' %>
+    <% unless current_page?(new_admin_session_path) ||  current_page?(admin_dashboard_path)%>
+      <%= render 'layouts/navbar' %>
+    <% end %>
+    <%= render 'layouts/flash' %>
     <%= yield %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
