@@ -15,7 +15,9 @@
     <% unless current_page?(new_admin_session_path) ||  current_page?(admin_dashboard_path)%>
       <%= render 'layouts/navbar' %>
     <% end %>
-    <%= render 'layouts/flash' %>
+    <% unless current_page?(admin_dashboard_path) %>
+      <%= render 'layouts/flash' %>
+    <% end %>
     <%= yield %>
     <%= render 'layouts/footer' %>
   </body>

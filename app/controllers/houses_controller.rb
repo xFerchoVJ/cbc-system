@@ -24,6 +24,8 @@ class HousesController < ApplicationController
   def create
     @house = House.new(house_params)
 
+    @house.admin_id = current_admin.id
+
     respond_to do |format|
       if @house.save
         format.html { redirect_to house_url(@house), notice: "House was successfully created." }

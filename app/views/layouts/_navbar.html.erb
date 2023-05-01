@@ -63,13 +63,13 @@
       <% else %>
         <%= link_to 'Ver casas', houses_path, class: "nav-link #{ 'active' if current_page?(houses_path)} fs-5 link"%>
         <%= link_to "Cerrar Sesion", destroy_user_session_path, class: "nav-link link fs-5" %>
+        </div>
+        <div class="navbar__content-form">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+            <button class="btn btn-outline-success" type="submit">Buscar</button>
+          </form>
+        </div>
       <% end %>
-    </div>
-    <div class="navbar__content-form">
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-        <button class="btn btn-outline-success" type="submit">Buscar</button>
-      </form>
-    </div>
   </div>
 </nav>
