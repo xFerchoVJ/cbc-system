@@ -11,21 +11,15 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="mb-3">
+    <%= form.label :title, "Titulo de la casa", class:"form-label fs-3" %>
+    <%= form.text_field :title, class: "form-control", placeholder: "Casa..."%>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
+    <%= form.label :description, "Descripcion de la casa", class:"form-label fs-3" %>
+    <%= form.text_field :description, class: "form-control", placeholder: "Casa..." %>
   </div>
-
-  <div>
-    <%= form.label :admin_id, style: "display: block" %>
-    <%= form.text_field :admin_id %>
-  </div>
-
   <div>
     <%= form.submit %>
   </div>

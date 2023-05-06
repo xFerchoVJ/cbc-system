@@ -1,6 +1,6 @@
-<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">\
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
   <%= render 'layouts/flash' %>
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Compañía</a>
+  <%= link_to 'CBC ADMIN', admin_dashboard_path, class: "navbar-brand col-md-3 col-lg-2 me-0 px-3"%>
   <button
     class="navbar-toggler position-absolute d-md-none collapsed"
     type="button"
@@ -15,8 +15,9 @@
   <input
     class="form-control form-control-dark w-100"
     type="text"
-    placeholder="Buscar"
+    placeholder="CONTROLA TU PAGINA"
     aria-label="Buscar"
+    disabled
   />
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
@@ -24,7 +25,7 @@
     </div>
   </div>
 </header>
-<div class="container-fluid dashboard">
+<div class="container-fluid dashboard" data-controller="client">
   <div class="row">
     <nav
       id="sidebarMenu"
@@ -33,8 +34,8 @@
       <div class="position-sticky pt-3">
         <ul class="nav flex-column gap-5">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">
-              <svg
+          <%= link_to admin_dashboard_path, class:"nav-link #{ 'active' if current_page?(admin_dashboard_path)}" do %>
+            <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
@@ -51,7 +52,7 @@
                 <polyline points="9 22 9 12 15 12 15 22"></polyline>
               </svg>
               Dashboard
-            </a>
+          <% end %>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
@@ -77,7 +78,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="#" data-action="click->client#createHouses">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -101,25 +102,25 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="#" data-action="click->client#showUsers">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="feather feather-users"
-                aria-hidden="true"
-              >
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-users"
+                  aria-hidden="true"
+                >
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
               Clientes Registrados
             </a>
           </li>
@@ -127,11 +128,23 @@
       </div>
     </nav>
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      <div
-        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
-      >
-        <h1 class="h2">Bienvenido, <%= current_admin.email %></h1>
-      </div>
+      <section id="home-metrics">
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+        >
+          <h1 class="h2">Bienvenido, <%= current_admin.email %></h1>
+        </div>
+        <div class="container-fluid">
+          <h2>Usuarios creados</h2>
+        </div>
+        <%= line_chart User.group_by_day(:created_at).count %>
+        <div class="container-fluid">
+          <h2>Casas creadas</h2>
+        </div>
+        <%= pie_chart House.group_by_day(:created_at).count %>
+      </section>
+      <%= render 'pages/users_admin' %>
+      <%= render 'pages/houses_admin' %>
     </main>
   </div>
 </div>
