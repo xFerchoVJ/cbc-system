@@ -18,9 +18,7 @@
 
   <div>
     <%= form.label :description, "Descripcion de la casa", class:"form-label fs-3" %>
-    <%= form.text_field :description, class: "form-control", placeholder: "Casa..." %>
+    <%= form.rich_text_area :description, class: "form-control dashboard__area "%>
   </div>
-  <div>
-    <%= form.submit %>
-  </div>
+  <%= form.submit 'Crear', class: "btn btn-primary mt-4 w-100" %>
 <% end %>

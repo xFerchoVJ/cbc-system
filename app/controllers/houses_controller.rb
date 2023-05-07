@@ -28,7 +28,7 @@ class HousesController < ApplicationController
 
     respond_to do |format|
       if @house.save
-        format.html { redirect_to house_url(@house), notice: "House was successfully created." }
+        format.html { redirect_to admin_dashboard_path, notice: "La casa ha sido correctamente creada." }
         format.json { render :show, status: :created, location: @house }
       else
         format.html { render :new, status: :unprocessable_entity }
