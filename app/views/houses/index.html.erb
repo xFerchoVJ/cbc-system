@@ -1,9 +1,15 @@
-<h1>Houses</h1>
-<div id="houses">
-  <% @houses.each do |house| %>
-    <%= render house %>
-    <p>
-      <%= link_to "Show this house", house %>
-    </p>
-  <% end %>
-</div>
+<section class="section-products">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="header">
+          <h2>Casas en Venta</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <% @houses.each do |house| %>
+        <%= render house %>
+      <% end %>
+    </div>
+</section>

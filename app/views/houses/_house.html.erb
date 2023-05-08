@@ -1,17 +1,19 @@
-<div id="<%= dom_id house %>">
-  <p>
-    <strong>Title:</strong>
-    <%= house.title %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= house.description %>
-  </p>
-
-  <p>
-    <strong>Admin:</strong>
-    <%= house.admin_id %>
-  </p>
-
+<!-- Single Product -->
+<div class="col-md-6 col-lg-4 col-xl-3">
+  <div id="<%= dom_id house %>" class="single-product">
+    <div class="part-1">
+      <ul>
+        <li>
+          <a href="#"><i class="fas fa-heart"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fas fa-plus"></i></a>
+        </li>
+      </ul>
+    </div>
+    <div class="part-2">
+      <h3 class="product-title"><%= house.title %></h3>
+      <h4 class="product-price">$49.99</h4>
+    </div>
+  </div>
 </div>
