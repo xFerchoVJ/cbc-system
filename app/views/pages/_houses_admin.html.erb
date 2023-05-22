@@ -1,8 +1,56 @@
-<section class="d-none" id="house-section">
-  <div
-    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
-  >
-    <h1 class="h2">Registrar las casas</h1>
+<section class="d-none" id="house-section" data-action="click->client#showHouses">
+  <div class="d-flex justify-content-between  border-bottom">
+    <div
+      class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3"
+    >
+      <h1 class="h2">Registrar las casas</h1>
+    </div>
+    <div>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-outline-primary mt-3 mb-3 py-3" data-bs-toggle="modal" data-bs-target="#housesModal">
+        Ver Casas Registradas
+      </button>
+    </div>
   </div>
-  <%= render 'houses/form', house: House.new%>
+  <%= render 'houses/form', house: House.new %>
+  <!-- Modal -->
+  <div class="modal fade" id="housesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Casas Registradas</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Fecha de registro</th>
+                <th scope="col">Modificar Casa</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% houses.each do |house|%>
+                <tr>
+                  <th scope="row"><%=house.id%></th>
+                  <td scope='row'><%= house.title %></td>
+                  <td scope='row'><%= house.created_at.strftime('%Y-%m-%d') %></td>
+                  <td scope='row'>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      Modificar
+                    </button>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

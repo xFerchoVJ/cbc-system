@@ -144,7 +144,7 @@
         <%= pie_chart House.group_by_day(:created_at).count %>
       </section>
       <%= render 'pages/users_admin' %>
-      <%= render 'pages/houses_admin' %>
+      <%= render 'pages/houses_admin', houses: @houses%>
     </main>
   </div>
 </div>

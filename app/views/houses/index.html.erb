@@ -8,8 +8,12 @@
       </div>
     </div>
     <div class="row">
-      <% @houses.each do |house| %>
-        <%= render house %>
+      <% if @houses.length < 0 %>
+        <h1>No hay casas disponibles aun...</h1>
+      <% else %>
+        <% @houses.each do |house| %>
+          <%= render house %>
+        <% end %>
       <% end %>
     </div>
 </section>

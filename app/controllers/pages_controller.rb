@@ -5,5 +5,6 @@ class PagesController < ApplicationController
 
   def dashboard
     @users = User.all
+    @houses = House.all
   end
 end
