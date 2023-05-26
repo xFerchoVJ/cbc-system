@@ -20,5 +20,22 @@
     <%= form.label :description, "Descripcion de la casa", class:"form-label fs-3" %>
     <%= form.rich_text_area :description, class: "form-control dashboard__area "%>
   </div>
+
+  <div>
+    <%= form.label :price, "Agrega el precio de la casa", class: "form-label fs-3" %>
+    <%= form.number_field :price, step: 0.01, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :image, "Agrega una imagen de muestra para la casa", class: "form-label fs-3 my-3" %>
+    <%= form.file_field :image, class: "form-control form-control-lg" %>
+  </div>
+
+  <div>
+    <%= form.label :pictures, "Imagenes de la casa", class: "form-label fs-3 my-3" %>
+    <%= form.file_field :pictures, multiple: true, class: "form-control form-control-lg" %>
+  </div>
+
+
   <%= form.submit 'Crear', class: "btn btn-primary mt-4 w-100" %>
 <% end %>

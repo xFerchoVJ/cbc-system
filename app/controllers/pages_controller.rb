@@ -5,6 +5,6 @@ class PagesController < ApplicationController
 
   def dashboard
     @users = User.all
-    @houses = House.all
+    @houses = House.order(id: :asc)
   end
 end

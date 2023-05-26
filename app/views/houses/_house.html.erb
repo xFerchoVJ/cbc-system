@@ -1,19 +1,9 @@
-<!-- Single Product -->
-<div class="col-md-6 col-lg-4 col-xl-3">
-  <div id="<%= dom_id house %>" class="single-product">
-    <div class="part-1">
-      <ul>
-        <li>
-          <a href="#"><i class="fas fa-heart"></i></a>
-        </li>
-        <li>
-          <a href="#"><i class="fas fa-plus"></i></a>
-        </li>
-      </ul>
-    </div>
-    <div class="part-2">
-      <h3 class="product-title"><%= house.title %></h3>
-      <h4 class="product-price">$49.99</h4>
-    </div>
+<div class="card text-bg-dark">
+  <img src="..." class="card-img" alt="...">
+  <%=image_tag(house.image)%>
+  <div class="card-img-overlay">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text"><small>Last updated 3 mins ago</small></p>
   </div>
 </div>
